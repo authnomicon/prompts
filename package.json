@@ -1,0 +1,54 @@
+{
+  "name": "@authnomicon/prompt",
+  "version": "0.0.0",
+  "description": "Prompt components for the Authnomicon project.",
+  "keywords": [
+    "components",
+    "challenge",
+    "prompt"
+  ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/authnomicon/prompt.git"
+  },
+  "bugs": {
+    "url": "http://github.com/authnomicon/prompt/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./app",
+  "assembly": {
+    "namespace": "org.authnomicon/prompt",
+    "components": [
+    ]
+  },
+  "directories": {
+    "com": "com"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "make-node": "0.3.x",
+    "proxyquire": "^2.1.3",
+    "mocha": "^6.2.1",
+    "chai": "^4.2.0",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --require test/bootstrap/node test/*.test.js"
+  }
+}
