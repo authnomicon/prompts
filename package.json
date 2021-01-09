@@ -30,13 +30,14 @@
   "assembly": {
     "namespace": "org.authnomicon/prompt",
     "components": [
+      "http/registry",
+      "http/login"
     ]
   },
   "directories": {
     "com": "com"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "make-node": "0.3.x",
     "proxyquire": "^2.1.3",

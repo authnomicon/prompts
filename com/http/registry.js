@@ -7,7 +7,7 @@ exports = module.exports = function(IoC, logger) {
   return Promise.resolve(registry)
     .then(function(registry) {
       return new Promise(function(resolve, reject) {
-        var components = IoC.components('http://i.authnomicon.org/http/Prompt');
+        var components = IoC.components('http://i.authnomicon.org/http/prompt/Prompt');
         
         (function iter(i) {
           var component = components[i];
@@ -34,6 +34,9 @@ exports = module.exports = function(IoC, logger) {
     });
 };
 
+exports['@singleton'] = true;
+exports['@implements'] = 'http://i.authnomicon.org/http/prompt/Registry';
 exports['@require'] = [
+  '!container',
   'http://i.bixbyjs.org/Logger'
 ];
