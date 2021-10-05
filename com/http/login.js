@@ -1,8 +1,6 @@
 exports = module.exports = function() {
   
   return function(req, res, next) {
-    console.log('PROMPT FOR LOGIN!');
-    
     return res.redirect('/login');
     
     // TODO: Port these prompts over
