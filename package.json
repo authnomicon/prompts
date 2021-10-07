@@ -1,5 +1,5 @@
 {
-  "name": "@authnomicon/prompt",
+  "name": "@authnomicon/prompts",
   "version": "0.0.0",
   "description": "Prompt components for the Authnomicon project.",
   "keywords": [
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/authnomicon/prompt.git"
+    "url": "git://github.com/authnomicon/prompts.git"
   },
   "bugs": {
-    "url": "http://github.com/authnomicon/prompt/issues"
+    "url": "http://github.com/authnomicon/prompts/issues"
   },
   "license": "MIT",
   "licenses": [
@@ -27,7 +27,7 @@
     }
   ],
   "assembly": {
-    "namespace": "org.authnomicon/prompt",
+    "namespace": "org.authnomicon/prompts",
     "components": [
       "http/registry",
       "http/login"
