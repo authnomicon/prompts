@@ -4,26 +4,29 @@
   "description": "Prompt components for the Authnomicon project.",
   "keywords": [
     "components",
-    "challenge",
-    "prompt"
+    "prompts"
   ],
   "author": {
     "name": "Jared Hanson",
     "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "url": "https://www.jaredhanson.me/"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/authnomicon/prompts.git"
   },
   "bugs": {
-    "url": "http://github.com/authnomicon/prompts/issues"
+    "url": "https://github.com/authnomicon/prompts/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/jaredhanson"
   },
   "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "url": "https://opensource.org/licenses/MIT"
     }
   ],
   "assembly": {
@@ -39,12 +42,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "make-node": "0.3.x",
-    "proxyquire": "^2.1.3",
-    "mocha": "^6.2.1",
-    "chai": "^4.2.0",
-    "sinon": "^7.5.0",
-    "sinon-chai": "^3.3.0"
+    "chai": "^4.3.4",
+    "chai-express-handler": "^0.1.0",
+    "make-node": "^0.3.0",
+    "mocha": "^9.1.3",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0"
   },
   "engines": {
     "node": "*"
