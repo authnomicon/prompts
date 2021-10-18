@@ -23,5 +23,5 @@ exports = module.exports = function() {
   };
 };
 
-exports['@implements'] = 'http://i.authnomicon.org/http/prompt/Prompt';
+exports['@implements'] = 'http://i.authnomicon.org/prompts/http/Prompt';
 exports['@name'] = 'login';
