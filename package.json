@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Prompt components for the Authnomicon project.",
   "keywords": [
-    "components",
     "prompts"
   ],
   "author": {
