@@ -39,7 +39,9 @@
   "directories": {
     "com": "com"
   },
-  "dependencies": {},
+  "dependencies": {
+    "array-flatten": "^1.1.1"
+  },
   "devDependencies": {
     "chai": "^4.3.4",
     "chai-express-handler": "^0.1.0",

@@ -1,24 +1,24 @@
 exports = module.exports = function(IoC, logger) {
-  var Registry = require('../../lib/registry');
+  var Router = require('../../lib/router');
   
   
-  var registry = new Registry();
+  var router = new Router();
   
-  return Promise.resolve(registry)
-    .then(function(registry) {
+  return Promise.resolve(router)
+    .then(function(router) {
       return new Promise(function(resolve, reject) {
         var components = IoC.components('http://i.authnomicon.org/prompts/http/Prompt');
         
         (function iter(i) {
           var component = components[i];
           if (!component) {
-            return resolve(registry);
+            return resolve(router);
           }
         
           component.create()
             .then(function(prompt) {
               logger.info('Loaded HTTP prompt: ' + component.a['@name']);
-              registry.use(component.a['@name'], prompt);
+              router.use(component.a['@name'], prompt);
               iter(i + 1);
             }, function(err) {
               var msg = 'Failed to load HTTP prompt: ' + component.a['@name'] + '\n';
@@ -29,13 +29,13 @@ exports = module.exports = function(IoC, logger) {
         })(0);
       });
     })
-    .then(function(registry) {
-      return registry;
+    .then(function(router) {
+      return router;
     });
 };
 
 exports['@singleton'] = true;
-exports['@implements'] = 'http://i.authnomicon.org/prompts/http/Registry';
+exports['@implements'] = 'http://i.authnomicon.org/prompts/http/Router';
 exports['@require'] = [
   '!container',
   'http://i.bixbyjs.org/Logger'
