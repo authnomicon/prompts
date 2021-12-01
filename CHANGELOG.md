@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added `Router#dispatch(name, req, res, next)`.
+- Added `logout` prompt.
 
 ### Changed
 - Renamed `http://i.authnomicon.org/prompts/http/Registry` interface to
