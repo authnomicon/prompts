@@ -31,8 +31,7 @@
   "assembly": {
     "namespace": "org.authnomicon/prompts",
     "components": [
-      "http/registry",
-      "http/logout"
+      "http/registry"
     ]
   },
   "directories": {

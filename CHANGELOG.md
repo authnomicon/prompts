@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Removed
 - Removed login prompt.  Moved to [`@authnomicon/login`](https://github.com/authnomicon/login).
+- Removed logout prompt.  Moved to [`@authnomicon/login`](https://github.com/authnomicon/login).
 - Removed select-account prompt.  Moved to [`@authnomicon/login`](https://github.com/authnomicon/login).
 
 ## [0.0.2] - 2021-12-02
