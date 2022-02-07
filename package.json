@@ -32,7 +32,6 @@
     "namespace": "org.authnomicon/prompts",
     "components": [
       "http/registry",
-      "http/login",
       "http/logout",
       "http/select-account"
     ]

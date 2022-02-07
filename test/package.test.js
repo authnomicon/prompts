@@ -12,7 +12,6 @@ describe('@authnomicon/prompts', function() {
       expect(json.assembly.namespace).to.equal('org.authnomicon/prompts');
       expect(json.assembly.components).to.deep.equal([
         'http/registry',
-        'http/login',
         'http/logout',
         'http/select-account'
       ]);
