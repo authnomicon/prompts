@@ -32,14 +32,18 @@
     "namespace": "org.authnomicon/prompts",
     "components": [
       "http/registry",
-      "http/consent"
+      "http/consent",
+      "consent/service"
     ]
   },
   "directories": {
     "com": "com"
   },
   "dependencies": {
-    "array-flatten": "^1.1.1"
+    "array-flatten": "^1.1.1",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "chai": "^4.3.4",
