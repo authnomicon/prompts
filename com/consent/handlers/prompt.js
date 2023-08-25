@@ -6,8 +6,8 @@ exports = module.exports = function(authenticator, store) {
   function prompt(req, res, next) {
     res.locals.csrfToken = req.csrfToken();
     
-    console.log('PROMPTING CONSENT');
-    console.log(req.state);
+    //console.log('PROMPTING CONSENT');
+    //console.log(req.state);
     
     res.render('consent', function(err, str) {
       if (err && err.view) {
@@ -35,6 +35,6 @@ exports = module.exports = function(authenticator, store) {
 };
 
 exports['@require'] = [
-  'module:@authnomicon/session.Authenticator',
+  'module:passport.Authenticator',
   'module:flowstate.Store'
 ];
