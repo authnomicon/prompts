@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.0.3] - 2023-10-20
+
+TODO: Review this for accuracy.
+
 ### Removed
 - Removed login prompt.  Moved to [`@authnomicon/login`](https://github.com/authnomicon/login).
 - Removed logout prompt.  Moved to [`@authnomicon/login`](https://github.com/authnomicon/login).
