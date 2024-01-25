@@ -31,6 +31,7 @@ TODO: Review this for accuracy.
 
 - Initial release.
 
-[Unreleased]: https://github.com/authnomicon/prompts/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/authnomicon/prompts/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/authnomicon/prompts/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/authnomicon/prompts/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/authnomicon/prompts/releases/tag/v0.0.1
