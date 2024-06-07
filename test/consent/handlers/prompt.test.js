@@ -74,6 +74,36 @@ describe('consent/handlers/prompt', function() {
         .listen();
     }); // should render
     
+    it('should error when client does not exist', function(done) {
+      var mockClientDirectory = new Object();
+      mockClientDirectory.read = sinon.stub().yieldsAsync(null, undefined);
+      var mockAuthenticator = new Object();
+      mockAuthenticator.authenticate = function(name, options) {
+        return function(req, res, next) {
+          req.user = { id: '248289761001', displayName: 'Jane Doe' };
+          next();
+        };
+      };
+      var mockStateStore = new Object();
+      
+      var handler = factory(mockClientDirectory, mockAuthenticator, mockStateStore);
+    
+      chai.express.use(handler)
+        .request(function(req, res) {
+          req.query = {};
+          req.query.client_id = 's6BhdRkqt3';
+          req.session = {};
+          req.connection = {};
+        })
+        .next(function(err) {
+          expect(err).to.be.an.instanceOf(Error);
+          expect(err.message).to.equal('Client does not exist');
+          expect(err.status).to.equal(422);
+          done();
+        })
+        .listen();
+    }); // should error when client does not exist
+    
     it('should error when failing to read client', function(done) {
       var mockClientDirectory = new Object();
       mockClientDirectory.read = sinon.stub().yieldsAsync(new Error('something went wrong'))

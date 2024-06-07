@@ -1,5 +1,6 @@
 var path = require('path')
-  , ejs = require('ejs');
+  , ejs = require('ejs')
+  , errors = require('http-errors');
 
 exports = module.exports = function(clients, authenticator, store) {
 
@@ -7,12 +8,16 @@ exports = module.exports = function(clients, authenticator, store) {
     clients.read(req.query.client_id, function(err, client) {
       if (err) { return next(err); }
       if (!client) {
-        // TODO: better error handling and status
-        return next(new Error('client not found'));
+        return next(new errors.UnprocessableEntity('Client does not exist'));
       }
       
-      // NOTE: cannot set "client"
-      // https://stackoverflow.com/questions/44323864/ejs-include-is-not-a-function-error
+      // NOTE: If a `client` is set on `locals`, rendering an ejs view that uses
+      // inclues (ie, most ejs views) will fail with an error: "include is not a function".
+      // Due to this, the client is set at `application`.
+      //
+      // For more information, refer to:
+      //   https://github.com/mde/ejs/issues/525
+      //   https://stackoverflow.com/questions/44323864/ejs-include-is-not-a-function-error
       res.locals.application = client;
       next();
     });
