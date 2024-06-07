@@ -62,7 +62,7 @@ exports = module.exports = function(clients, authenticator, store) {
 };
 
 exports['@require'] = [
-  'http://i.authnomicon.org/oauth2/ClientDirectory',
+  'module:@authnomicon/oauth2.ClientDirectory',
   'module:passport.Authenticator',
   'module:flowstate.Store'
 ];

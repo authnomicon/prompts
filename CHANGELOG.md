@@ -17,6 +17,8 @@ endpoint.
 ### Changed
 
 - Moved `http/consent` component to `consent/prompt`.
+- Renamed `http://i.authnomicon.org/oauth2/ClientDirectory` interface
+to `module:@authnomicon/oauth2.ClientDirectory`.
 
 ## [0.0.3] - 2023-10-20
 
