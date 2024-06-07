@@ -2,6 +2,28 @@
 
 Prompt components for the Authnomicon project.
 
+`@authnomicon/prompts` is a set of components for prompting the user within a
+web browser.
+
+The prompts form a [challenge-response](https://en.wikipedia.org/wiki/Challenge–response_authentication)
+protocol to authenticate the user.  Prompts may also perform related access
+control operations, such as identity proofing or obtaining authorization for
+third-party access.
+
+Prompts are presented in a web browser, and as such present challenges to the
+user by rendering HTML.  The user provides a response by submitting an HTML
+form.  Sequences of prompts are strung together using a series of redirects.
+Optionally, prompts may be [progressively enhanced](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement)
+using client-side JavaScript to enhance the user experience and take advantage
+of richer capabilities.
+
+Within the context of a overarching authentication or authorization protocol,
+a prompt or sequence of prompts is often referred to as a "flow" (in the case of
+[OAuth](https://datatracker.ietf.org/doc/html/rfc6749)) or a "ceremony" (in the
+case of [WebAuthn](https://www.w3.org/TR/webauthn-2/)).  Such flows often
+require relatively complex per-request state management, which is accomplished
+using [`flowstate`](https://github.com/jaredhanson/flowstate).
+
 <div align="right">
   <sup>Developed by <a href="#authors">Jared Hanson</a>.</sub>
 </div>
