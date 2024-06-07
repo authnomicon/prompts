@@ -12,7 +12,7 @@ describe('@authnomicon/prompts', function() {
       expect(json.assembly.namespace).to.equal('org.authnomicon/prompts');
       expect(json.assembly.components).to.deep.equal([
         'http/registry',
-        'http/consent',
+        'consent/prompt',
         'consent/service'
       ]);
     });
