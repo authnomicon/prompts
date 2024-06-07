@@ -18,7 +18,7 @@ exports = module.exports = function(grants, authenticator, store) {
     });
   }
   
-  function resumeOr(req, res, next) {
+  function resume(req, res, next) {
     //console.log('ATTEMPTING TO RESUME');
     //console.log(req.state);
     
@@ -38,7 +38,7 @@ exports = module.exports = function(grants, authenticator, store) {
     require('flowstate')({ store: store }),
     authenticator.authenticate('session'),
     create,
-    resumeOr,
+    resume,
     redirect
   ];
 };
