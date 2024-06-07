@@ -20,7 +20,7 @@ describe('consent/handlers/prompt', function() {
     var authenticator = new Object();
     authenticator.authenticate = sinon.spy();
     var store = new Object();
-    var handler = factory(authenticator, store);
+    var handler = factory(undefined, authenticator, store);
     
     expect(handler).to.be.an('array');
     expect(csurfSpy).to.be.calledOnce;

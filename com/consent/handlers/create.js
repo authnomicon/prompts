@@ -2,15 +2,17 @@ exports = module.exports = function(grants, authenticator, store) {
   
   // TODO: Make this handle a realm parameter, to mirror HTTP Basic auth
   function create(req, res, next) {
-    //console.log('CREATE GRANT!');
-    //console.log(req.user);
-    //console.log(req.body);
-    
-    var grant = {
-      scope: [ 'foo' ]
+    var client = {
+      id: req.body.client_id
+    };
+    var grant = {};
+    if (req.body.scope) {
+      grant.scopes = [ {
+        scope: req.body.scope.split(' ')
+      } ];
     };
     
-    grants.create(grant, req.user, function(err, user) {
+    grants.create(grant, client, req.user, function(err, user) {
       if (err) { return next(err); }
       return next();
     });

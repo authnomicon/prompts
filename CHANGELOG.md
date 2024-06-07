@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Create grant handler processed client_id and scope parameters.
 - `application` and `scope` locals are set prior to rendering 'consent' view.
 - 'consent' prompt accepts `client` and `scope` options via res.locals.
 
