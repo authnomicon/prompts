@@ -4,6 +4,11 @@ var path = require('path')
 
 exports = module.exports = function(clients, authenticator, store) {
 
+  function validate(req, res, next) {
+    if (!req.query.client_id) { return next(new errors.BadRequest('Missing required parameter: client_id')); }
+    next();
+  }
+
   function loadClient(req, res, next) {
     clients.read(req.query.client_id, function(err, client) {
       if (err) { return next(err); }
@@ -47,6 +52,7 @@ exports = module.exports = function(clients, authenticator, store) {
   
   
   return [
+    validate,
     require('csurf')(),
     require('flowstate')({ store: store }),
     authenticator.authenticate('session'),
