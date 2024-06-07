@@ -32,4 +32,48 @@ describe('consent/handlers/prompt', function() {
     expect(authenticator.authenticate).to.be.calledWith('session');
   });
   
+  describe('handler', function() {
+    
+    it('should render', function(done) {
+      var mockClientDirectory = new Object();
+      mockClientDirectory.read = sinon.stub().yieldsAsync(null, { id: 's6BhdRkqt3', name: 'My Example Client' })
+      var mockAuthenticator = new Object();
+      mockAuthenticator.authenticate = function(name, options) {
+        return function(req, res, next) {
+          req.user = { id: '248289761001', displayName: 'Jane Doe' };
+          next();
+        };
+      };
+      var mockStateStore = new Object();
+      
+      var handler = factory(mockClientDirectory, mockAuthenticator, mockStateStore);
+    
+      chai.express.use(handler)
+        .request(function(req, res) {
+          req.query = {};
+          req.query.client_id = 's6BhdRkqt3';
+          req.session = {};
+          req.connection = {};
+        })
+        .finish(function() {
+          expect(mockClientDirectory.read).to.have.been.calledWith('s6BhdRkqt3');
+          
+          expect(this).to.have.status(200);
+          expect(this).to.render('consent');
+          expect(this).to.include.locals([ 'user', 'application', 'csrfToken' ]);
+          expect(this.locals.user).to.deep.equal({
+            id: '248289761001',
+            displayName: 'Jane Doe'
+          });
+          expect(this.locals.application).to.deep.equal({
+            id: 's6BhdRkqt3',
+            name: 'My Example Client'
+          });
+          done();
+        })
+        .listen();
+    }); // should render
+    
+  }); // handler
+  
 });

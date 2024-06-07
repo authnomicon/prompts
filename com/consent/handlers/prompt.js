@@ -22,6 +22,7 @@ exports = module.exports = function(clients, authenticator, store) {
     if (req.query.scope) {
       res.locals.scope = req.query.scope.split(' ');
     }
+    res.locals.user = req.user;
     res.locals.csrfToken = req.csrfToken();
     
     res.render('consent', function(err, str) {
