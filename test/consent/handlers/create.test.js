@@ -55,9 +55,12 @@ describe('consent/handlers/create', function() {
     
       chai.express.use(handler)
         .request(function(req, res) {
+          req.method = 'POST';
           req.body = {};
           req.body.client_id = 's6BhdRkqt3';
+          req.body.csrf_token = '3aev7m03-1WTaAw4lJ_GWEMkjwFBu_lwNWG8';
           req.session = {};
+          req.session.csrfSecret = 'zbVXAFVVUSXO0_ZZLBYVP9ue';
           req.connection = {};
         })
         .finish(function() {
@@ -92,10 +95,13 @@ describe('consent/handlers/create', function() {
     
       chai.express.use(handler)
         .request(function(req, res) {
+          req.method = 'POST';
           req.body = {};
           req.body.client_id = 's6BhdRkqt3';
           req.body.scope = 'write';
+          req.body.csrf_token = '3aev7m03-1WTaAw4lJ_GWEMkjwFBu_lwNWG8';
           req.session = {};
+          req.session.csrfSecret = 'zbVXAFVVUSXO0_ZZLBYVP9ue';
           req.connection = {};
         })
         .finish(function() {
@@ -133,10 +139,13 @@ describe('consent/handlers/create', function() {
     
       chai.express.use(handler)
         .request(function(req, res) {
+          req.method = 'POST';
           req.body = {};
           req.body.client_id = 's6BhdRkqt3';
           req.body.scope = 'contacts read';
+          req.body.csrf_token = '3aev7m03-1WTaAw4lJ_GWEMkjwFBu_lwNWG8';
           req.session = {};
+          req.session.csrfSecret = 'zbVXAFVVUSXO0_ZZLBYVP9ue';
           req.connection = {};
         })
         .finish(function() {
@@ -174,6 +183,7 @@ describe('consent/handlers/create', function() {
     
       chai.express.use(handler)
         .request(function(req, res) {
+          req.method = 'POST';
           req.body = {};
           req.session = {};
           req.connection = {};
