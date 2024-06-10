@@ -121,6 +121,35 @@ describe('consent/handlers/create', function() {
         .listen();
     }); // should create grant with multiple scopes
     
+    it('should error when missing client_id parameter', function(done) {
+      var mockGrantService = new Object();
+      mockGrantService.create = sinon.stub().yieldsAsync(null)
+      var mockAuthenticator = new Object();
+      mockAuthenticator.authenticate = function(name, options) {
+        return function(req, res, next) {
+          req.user = { id: '248289761001', displayName: 'Jane Doe' };
+          next();
+        };
+      };
+      var mockStateStore = new Object();
+      
+      var handler = factory(mockGrantService, mockAuthenticator, mockStateStore);
+    
+      chai.express.use(handler)
+        .request(function(req, res) {
+          req.body = {};
+          req.session = {};
+          req.connection = {};
+        })
+        .next(function(err) {
+          expect(err).to.be.an.instanceOf(Error);
+          expect(err.message).to.equal('Missing required parameter: client_id');
+          expect(err.status).to.equal(400);
+          done();
+        })
+        .listen();
+    }); // should error when missing client_id parameter
+    
   }); // handler
   
 });

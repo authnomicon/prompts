@@ -1,7 +1,9 @@
+var errors = require('http-errors');
+
 exports = module.exports = function(grants, authenticator, store) {
   
   function validate(req, res, next) {
-    if (!req.query.client_id) { return next(new errors.BadRequest('Missing required parameter: client_id')); }
+    if (!req.body.client_id) { return next(new errors.BadRequest('Missing required parameter: client_id')); }
     next();
   }
   
@@ -33,6 +35,7 @@ exports = module.exports = function(grants, authenticator, store) {
   
   return [
     require('body-parser').urlencoded({ extended: false }),
+    validate,
     require('csurf')({ value: function(req){ return req.body && req.body.csrf_token; } }),
     require('flowstate')({ store: store }),
     authenticator.authenticate('session'),
