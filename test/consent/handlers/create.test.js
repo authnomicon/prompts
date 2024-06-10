@@ -39,9 +39,7 @@ describe('consent/handlers/create', function() {
   
   describe('handler', function() {
     
-    it('should redirect', function(done) {
-      //var mockClientDirectory = new Object();
-      //mockClientDirectory.read = sinon.stub().yieldsAsync(null, { id: 's6BhdRkqt3', name: 'My Example Client' })
+    it('should create grant with multiple scopes', function(done) {
       var mockGrantService = new Object();
       mockGrantService.create = sinon.stub().yieldsAsync(null, { id: 'TSdqirmAxDa0_-DB_1bASQ' })
       var mockAuthenticator = new Object();
@@ -80,8 +78,8 @@ describe('consent/handlers/create', function() {
           done();
         })
         .listen();
-    }); // should redirect
+    }); // should create grant with multiple scopes
     
-  }); // should redirect
+  }); // handler
   
 });
