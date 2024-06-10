@@ -1,5 +1,10 @@
 exports = module.exports = function(grants, authenticator, store) {
   
+  function validate(req, res, next) {
+    if (!req.query.client_id) { return next(new errors.BadRequest('Missing required parameter: client_id')); }
+    next();
+  }
+  
   function create(req, res, next) {
     var client = {
       id: req.body.client_id
