@@ -1,5 +1,8 @@
 var express = require('express');
 
+/*
+ * @returns {express.RequestHandler}
+ */
 exports = module.exports = function(promptHandler, createHandler) {
   var router = express.Router();
   router.get('/', promptHandler);
