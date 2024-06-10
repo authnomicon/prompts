@@ -197,6 +197,39 @@ describe('consent/handlers/create', function() {
         .listen();
     }); // should error when missing client_id parameter
     
+    it('should error when failing to create grant', function(done) {
+      var mockGrantService = new Object();
+      mockGrantService.create = sinon.stub().yieldsAsync(new Error('something went wrong'))
+      var mockAuthenticator = new Object();
+      mockAuthenticator.authenticate = function(name, options) {
+        return function(req, res, next) {
+          req.user = { id: '248289761001', displayName: 'Jane Doe' };
+          next();
+        };
+      };
+      var mockStateStore = new Object();
+      
+      var handler = factory(mockGrantService, mockAuthenticator, mockStateStore);
+    
+      chai.express.use(handler)
+        .request(function(req, res) {
+          req.method = 'POST';
+          req.body = {};
+          req.body.client_id = 's6BhdRkqt3';
+          req.body.scope = 'write';
+          req.body.csrf_token = '3aev7m03-1WTaAw4lJ_GWEMkjwFBu_lwNWG8';
+          req.session = {};
+          req.session.csrfSecret = 'zbVXAFVVUSXO0_ZZLBYVP9ue';
+          req.connection = {};
+        })
+        .next(function(err) {
+          expect(err).to.be.an.instanceOf(Error);
+          expect(err.message).to.equal('something went wrong');
+          done();
+        })
+        .listen();
+    }); // should error when failing to create grant
+    
   }); // handler
   
 });
