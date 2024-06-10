@@ -1,5 +1,5 @@
 exports = module.exports = function(IoC, logger) {
-  var Router = require('../../lib/router');
+  var Router = require('../lib/router');
   
   
   var router = new Router();

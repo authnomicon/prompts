@@ -31,7 +31,7 @@
   "assembly": {
     "namespace": "org.authnomicon/prompts",
     "components": [
-      "http/registry",
+      "router",
       "consent/prompt",
       "consent/service"
     ]
