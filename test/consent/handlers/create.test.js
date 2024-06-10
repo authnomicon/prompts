@@ -37,4 +37,51 @@ describe('consent/handlers/create', function() {
     expect(authenticator.authenticate).to.be.calledWith('session');
   });
   
+  describe('handler', function() {
+    
+    it('should redirect', function(done) {
+      //var mockClientDirectory = new Object();
+      //mockClientDirectory.read = sinon.stub().yieldsAsync(null, { id: 's6BhdRkqt3', name: 'My Example Client' })
+      var mockGrantService = new Object();
+      mockGrantService.create = sinon.stub().yieldsAsync(null, { id: 'TSdqirmAxDa0_-DB_1bASQ' })
+      var mockAuthenticator = new Object();
+      mockAuthenticator.authenticate = function(name, options) {
+        return function(req, res, next) {
+          req.user = { id: '248289761001', displayName: 'Jane Doe' };
+          next();
+        };
+      };
+      var mockStateStore = new Object();
+      
+      var handler = factory(mockGrantService, mockAuthenticator, mockStateStore);
+    
+      chai.express.use(handler)
+        .request(function(req, res) {
+          req.body = {};
+          req.body.client_id = 's6BhdRkqt3';
+          req.body.scope = 'contacts read';
+          req.session = {};
+          req.connection = {};
+        })
+        .finish(function() {
+          expect(mockGrantService.create).to.have.been.calledWith({
+            scopes: [ {
+              scope: [ 'contacts', 'read' ]
+            } ]
+          }, {
+            id: 's6BhdRkqt3'
+          }, {
+            id: '248289761001',
+            displayName: 'Jane Doe'
+          });
+          
+          expect(this).to.have.status(302);
+          expect(this.getHeader('Location')).to.equal('/');
+          done();
+        })
+        .listen();
+    }); // should redirect
+    
+  }); // should redirect
+  
 });
