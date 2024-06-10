@@ -7,7 +7,7 @@ exports = module.exports = function(IoC, logger) {
   return Promise.resolve(router)
     .then(function(router) {
       return new Promise(function(resolve, reject) {
-        var components = IoC.components('http://i.authnomicon.org/prompts/http/Prompt');
+        var components = IoC.components('module:@authnomicon/prompts.RequestHandler');
         
         (function iter(i) {
           var component = components[i];
