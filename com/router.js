@@ -35,7 +35,7 @@ exports = module.exports = function(IoC, logger) {
 };
 
 exports['@singleton'] = true;
-exports['@implements'] = 'http://i.authnomicon.org/prompts/http/Router';
+exports['@implements'] = 'module:@authnomicon/prompts.Router';
 exports['@require'] = [
   '!container',
   'http://i.bixbyjs.org/Logger'

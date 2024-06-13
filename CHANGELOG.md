@@ -18,6 +18,8 @@ endpoint.
 
 - Moved `http/consent` component to `consent/prompt`.
 - Moved `http/registry` component to `router`.
+- Renamed `http://i.authnomicon.org/prompts/http/Router` interface
+to `module:@authnomicon/prompts.Router`.
 - Renamed `http://i.authnomicon.org/prompts/http/Prompt` interface
 to `module:@authnomicon/prompts.RequestHandler`.
 - Renamed `http://i.authnomicon.org/oauth2/ClientDirectory` interface
