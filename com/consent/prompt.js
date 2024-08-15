@@ -11,5 +11,6 @@ exports = module.exports = function() {
   };
 };
 
+// TODO: rename this to ChallengeHandler???
 exports['@implements'] = 'module:@authnomicon/prompts.RequestHandler'
 exports['@name'] = 'consent';
