@@ -28,6 +28,13 @@ using [`flowstate`](https://github.com/jaredhanson/flowstate).
   <sup>Developed by <a href="#authors">Jared Hanson</a>.</sub>
 </div>
 
+## See Also
+
+- [@authnomicon/prompts-oob](https://github.com/authnomicon/prompts-oob) -
+  Components to present prompts to the user via out-of-band channels.  Typically
+  used when authorization is needed in non-web-based environments, such as
+  point-of-sale transactions with a cashier or teller and self-service kiosks.
+
 ## Authors
 
 - [Jared Hanson](https://www.jaredhanson.me/) { [![WWW](https://raw.githubusercontent.com/jaredhanson/jaredhanson/master/images/globe-12x12.svg)](https://www.jaredhanson.me/) [![Facebook](https://raw.githubusercontent.com/jaredhanson/jaredhanson/master/images/facebook-12x12.svg)](https://www.facebook.com/jaredhanson) [![LinkedIn](https://raw.githubusercontent.com/jaredhanson/jaredhanson/master/images/linkedin-12x12.svg)](https://www.linkedin.com/in/jaredhanson) [![Twitter](https://raw.githubusercontent.com/jaredhanson/jaredhanson/master/images/twitter-12x12.svg)](https://twitter.com/jaredhanson) [![GitHub](https://raw.githubusercontent.com/jaredhanson/jaredhanson/master/images/github-12x12.svg)](https://github.com/jaredhanson) }
