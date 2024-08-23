@@ -1,6 +1,6 @@
 {
   "name": "@authnomicon/prompts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Prompt components for the Authnomicon project.",
   "keywords": [
     "prompts"
