@@ -23,7 +23,7 @@ Within the context of a overarching authentication or authorization protocol,
 a prompt or sequence of prompts is often referred to as a "flow" (in the case of
 [OAuth](https://datatracker.ietf.org/doc/html/rfc6749)) or a "ceremony" (in the
 case of [WebAuthn](https://www.w3.org/TR/webauthn-2/)).  Such flows often
-require relatively complex per-request state management, which is accomplished
+require relatively complex per-request state management, which is maintained
 using [`flowstate`](https://github.com/jaredhanson/flowstate).
 
 <div align="right">
