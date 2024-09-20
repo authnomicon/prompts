@@ -15,7 +15,9 @@ user by rendering HTML.  The user provides a response by submitting an HTML
 form.  Sequences of prompts are strung together using a series of redirects.
 Optionally, prompts may be [progressively enhanced](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement)
 using client-side JavaScript to enhance the user experience and take advantage
-of richer capabilities.
+of richer capabilities.  If so, the response may be submitted programmatically
+via [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or
+`XMLHttpRequest`(https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API).
 
 Within the context of a overarching authentication or authorization protocol,
 a prompt or sequence of prompts is often referred to as a "flow" (in the case of
